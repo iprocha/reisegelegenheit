@@ -1,0 +1,47 @@
+<h1>Listing legs</h1>
+
+<table>
+  <tr>
+    <th>Transport</th>
+    <th>Transport price</th>
+    <th>Transport link</th>
+    <th>Lodging</th>
+    <th>Lodging price</th>
+    <th>Lodging link</th>
+    <th>Miscelaneous</th>
+    <th>Miscellaneous price</th>
+    <th>Total price</th>
+    <th>Average price</th>
+    <th>Arrival date</th>
+    <th>Departure date</th>
+    <th>Duration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @legs.each do |leg| %>
+  <tr>
+    <td><%= leg.transport %></td>
+    <td><%= leg.transport_price %></td>
+    <td><%= leg.transport_link %></td>
+    <td><%= leg.lodging %></td>
+    <td><%= leg.lodging_price %></td>
+    <td><%= leg.lodging_link %></td>
+    <td><%= leg.miscelaneous %></td>
+    <td><%= leg.miscellaneous_price %></td>
+    <td><%= leg.total_price %></td>
+    <td><%= leg.average_price %></td>
+    <td><%= leg.arrival_date %></td>
+    <td><%= leg.departure_date %></td>
+    <td><%= leg.duration %></td>
+    <td><%= link_to 'Show', leg %></td>
+    <td><%= link_to 'Edit', edit_leg_path(leg) %></td>
+    <td><%= link_to 'Destroy', leg, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Leg', new_leg_path %>

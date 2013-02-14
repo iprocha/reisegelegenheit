@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+
+<h2>My Friends</h2>
+<ul>
+<% @user.friendships.each do |friendship| %>
+<li>
+<%= friendship.friend.profile.name %>
+<%= friendship.friend.profile.city %>
+  <%= button_to "remove", friendships, :method => :delete %>
+</li>
+<%end%>
+</ul>
+
+
+<h2>Friend Requests</h2>
+<ul>
+<% @user.inverse_friends.each do |inverse_friend| %>
+  <li>
+  <%= inverse_friend.profile.name %>
+  <%= inverse_friend.profile.city %>
+    <%= link_to "Accept",friendships_accept_path(:user_id => inverse_friend.friendships), :method => :get %>
+  </li>
+<%end%>
+</ul>
+<%= link_to "Find friends",users_path %>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

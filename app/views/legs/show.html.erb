@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Transport:</b>
+  <%= @leg.transport %>
+</p>
+
+<p>
+  <b>Transport price:</b>
+  <%= @leg.transport_price %>
+</p>
+
+<p>
+  <b>Transport link:</b>
+  <%= @leg.transport_link %>
+</p>
+
+<p>
+  <b>Lodging:</b>
+  <%= @leg.lodging %>
+</p>
+
+<p>
+  <b>Lodging price:</b>
+  <%= @leg.lodging_price %>
+</p>
+
+<p>
+  <b>Lodging link:</b>
+  <%= @leg.lodging_link %>
+</p>
+
+<p>
+  <b>Miscelaneous:</b>
+  <%= @leg.miscelaneous %>
+</p>
+
+<p>
+  <b>Miscellaneous price:</b>
+  <%= @leg.miscellaneous_price %>
+</p>
+
+<p>
+  <b>Total price:</b>
+  <%= @leg.total_price %>
+</p>
+
+<p>
+  <b>Average price:</b>
+  <%= @leg.average_price %>
+</p>
+
+<p>
+  <b>Arrival date:</b>
+  <%= @leg.arrival_date %>
+</p>
+
+<p>
+  <b>Departure date:</b>
+  <%= @leg.departure_date %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @leg.duration %>
+</p>
+
+
+<%= link_to 'Edit', edit_leg_path(@leg) %> |
+<%= link_to 'Back', legs_path %>

@@ -1,0 +1,32 @@
+
+<table id="myTable" class="tablesorter" style="border:1px">
+  <thead>
+  <tr>
+    <td style="">Organizer</td>
+    <td>Expected Price</td>
+    <td>Departure Date</td>
+    <td>Average Price</td>
+    <td>Duration</td>
+    <td></td>
+    
+  </tr>
+</thead>
+<tbody>
+<% @viagems.each do |viagem| %>
+  <tr class="list">
+    <td><%= viagem.organizador%></td>
+    <td><%= viagem.preco_esperado %> €</td>
+    <td><%= viagem.data_partida %></td>
+    <td><%= viagem.preco_medio %> €/Day</td>
+    <td><%= viagem.duracao %> dias</td>
+    <td style="width:55px;"><%= link_to image_tag("visualize.gif"), viagem %>
+    <%= link_to image_tag("edit.gif"), edit_viagem_path(viagem) %>
+    <%= link_to image_tag("close.gif"), viagem, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<%= button_to 'New Trip', new_viagem_path,:action => :new,:method => :get %>

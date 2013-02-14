@@ -1,0 +1,38 @@
+<h1>Editing viagem</h1>
+
+<%= render 'form' %>
+<table border="1">
+   <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Total</th>
+    <th>Average Price</th>
+    <th>Duration</th>
+    <th></th>
+  </tr>
+<%@viagem.legs.each do |leg|%>
+ 
+  <tr>
+    <td><%= leg.leg_from %></td>
+   <td> <%= leg.leg_to %></td>
+   <td> <%= leg.total_price %></td>
+  <td>  <%= leg.average_price %></td>
+   <td> <%= leg.duration %></td>
+     <td style="width:55px;"><%= link_to image_tag("visualize.gif"), leg %>
+    <%= link_to image_tag("edit.gif"), edit_leg_path(leg,:viagem_id => @viagem.id) %>
+    <%= link_to image_tag("close.gif"), leg, confirm: 'Are you sure?', method: :delete %>
+   </td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Participants</h2>
+<ul>
+<%@viagem.users.each do |user|%>
+  <li><%= user.profile.name %></li>
+<%end%>
+</ul>
+<%= button_to 'Add leg', {:action => :new, :viagem_id => @viagem.id, :controller => :legs}, :method => :post %>
+
+<%= link_to 'Show', @viagem %> |
+<%= link_to 'Back', viagems_path %>

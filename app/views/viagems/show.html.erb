@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Organizador:</b>
+  <%= @viagem.organizador %>
+</p>
+
+<p>
+  <b>Itinerario:</b>
+  <%= @viagem.itinerario %>
+</p>
+
+<p>
+  <b>Preco esperado:</b>
+  <%= @viagem.preco_esperado %> Euros
+</p>
+
+<p>
+  <b>Data partida:</b>
+  <%= @viagem.data_partida %>
+</p>
+
+<p>
+  <b>Data chegada:</b>
+  <%= @viagem.data_chegada %>
+</p>
+
+<p>
+  <b>Preco medio:</b>
+  <%= @viagem.preco_medio %> Euros
+</p>
+
+<p>
+  <b>Duracao:</b>
+  <%= @viagem.duracao %> dias
+</p>
+
+<p>
+  <b>Link hostel01:</b>
+  <%= @viagem.link_hostel01 %>
+</p>
+
+<p>
+  <b>Link hostel02:</b>
+  <%= @viagem.link_hostel02 %>
+</p>
+<h2>Legs</h2>
+<table border="1">
+   <tr>
+    <th>From</th>
+    <th>To</th>
+    <th>Total</th>
+    <th>Average Price</th>
+    <th>Duration</th>
+    <th></th>
+  </tr>
+<%@viagem.legs.each do |leg|%>
+
+  <tr>
+    <td><%= leg.leg_from %></td>
+   <td> <%= leg.leg_to %></td>
+   <td> <%= leg.total_price %></td>
+  <td>  <%= leg.average_price %></td>
+   <td> <%= leg.duration %></td>
+     <td style="width:55px;"><%= link_to image_tag("visualize.gif"), leg %>
+    <%= link_to image_tag("edit.gif"), edit_leg_path(leg,:viagem_id => @viagem.id) %>
+    <%= link_to image_tag("close.gif"), leg, confirm: 'Are you sure?', method: :delete %>
+   </td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Participants</h2>
+<ul>
+<%@viagem.users.each do |user|%>
+  <li><%= user.profile.name %></li>
+<%end%>
+</ul>
+<%= button_to "Participate", travels_path(:viagem_id => @viagem), :method => :post %>
+<%= link_to 'Edit', edit_viagem_path(@viagem) %> |
+<%= link_to 'Back', viagems_path %>

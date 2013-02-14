@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  organizador: MyString
+  itinerario: MyText
+  preco_esperado: 
+  data_partida: 2012-07-21
+  data_chegada: 2012-07-21
+  preco_medio: 
+  duracao: 1
+  link_hostel01: MyString
+  link_hostel02: MyString
+
+two:
+  organizador: MyString
+  itinerario: MyText
+  preco_esperado: 
+  data_partida: 2012-07-21
+  data_chegada: 2012-07-21
+  preco_medio: 
+  duracao: 1
+  link_hostel01: MyString
+  link_hostel02: MyString
